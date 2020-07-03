@@ -25,9 +25,9 @@ export default {
     },
     async add () {
       const length = this.list.length
-      this.list.unshift(length)
       const oldLis = this.$refs.lis.slice()
       const oldPositions = this.getPosition(oldLis)
+      this.list.unshift(length) // dom not change now
       // dom change
       await this.$nextTick()
       // get position
