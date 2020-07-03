@@ -2,8 +2,7 @@
   <div class='flip-list'>
     <div class="opts">
       <button @click="add">add</button>
-      <button>shuffle</button>
-      <button>remove</button>
+      <button @click='shuffleList'>shuffle</button>
     </div>
     <ul>
       <li ref='lis' v-for='item in list' :key="item">{{item}}</li>
@@ -12,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   data: () => ({
     list: new Array(1).fill().map((_, i) => i)
@@ -23,11 +23,20 @@ export default {
         return { left, top }
       })
     },
-    async add () {
-      const length = this.list.length
+    async shuffleList () {
+      let shuffle = await import('lodash.shuffle')
+      shuffle = shuffle.default
+      const func = () => (this.list = shuffle(this.list))
+      this.scheduleAnimation(func)
+    },
+    add () {
+      const func = () => this.list.unshift(this.list.length)
+      this.scheduleAnimation(func)
+    },
+    async scheduleAnimation (update) {
       const oldLis = this.$refs.lis.slice()
       const oldPositions = this.getPosition(oldLis)
-      this.list.unshift(length) // dom not change now
+      update() // dom not change now
       // dom change
       await this.$nextTick()
       // get position
@@ -71,11 +80,16 @@ export default {
     list-style: none;
     display:grid;
     grid-template-columns: repeat(4,1fr);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
     li {
-      width: 200px;
-      height: 200px;
+      width: 15vw;
+      height: 15vw;
       background-color: lightpink;
       margin: 1rem;
+      line-height: 15vw;
+      text-align: center;
     }
   }
 }

@@ -1,19 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/flipList'
   },
   {
-    path:'/flipList',
-    name:'flipList',
-    component:()=>import('@/views/FlipList.vue')
+    path: '/flipList',
+    name: 'flipList',
+    component: () => import('@/views/FlipList.vue')
   }
 ]
 
