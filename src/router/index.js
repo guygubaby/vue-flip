@@ -6,12 +6,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/flipList'
+    name: 'home',
+    component: () => import('@/views/home.vue')
   },
   {
     path: '/flipList',
     name: 'flipList',
     component: () => import('@/views/FlipList.vue')
+  },
+  {
+    path: '/divChange',
+    name: 'divChange',
+    component: () => import('@/views/DivChange.vue')
   }
 ]
 

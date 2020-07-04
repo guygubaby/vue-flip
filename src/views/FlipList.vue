@@ -1,8 +1,8 @@
 <template>
   <div class='flip-list'>
     <div class="opts">
-      <button @click="add">add</button>
-      <button @click='shuffleList'>shuffle</button>
+      <el-button size='small' type='primary' @click="add">add</el-button>
+      <el-button size='small' type='primary' @click='shuffleList'>shuffle</el-button>
     </div>
     <ul>
       <li ref='lis' v-for='item in list' :key="item">{{item}}</li>
