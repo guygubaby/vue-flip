@@ -1,7 +1,6 @@
-# add animation for dom change without transition tag
+# add animation for dom change
 
 
-[demo](https://guygubaby.github.io/vue-flip/)
+![deploy](https://github.com/guygubaby/vue-flip/workflows/deploy/badge.svg)
 
-
-[source](https://github.com/guygubaby/vue-flip/blob/master/src/views/FlipList.vue)
+[live preview](https://guygubaby.github.io/vue-flip/)
