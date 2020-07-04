@@ -22,7 +22,7 @@ export default {
       }
     },
     change () {
-      const func = () => (this.msg = new Array(200).fill(this.msg).join('\n'))
+      const func = () => (this.msg = new Array(10).fill(this.msg).join('\n'))
       this.scheduleAnimation(func)
     },
     restore () {
