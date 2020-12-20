@@ -1,4 +1,4 @@
-console.log(process.env)_
+console.log(process.env)
 
 const publicPath = process.env.VERCEL ? '/' : '/vue-flip/'
 
